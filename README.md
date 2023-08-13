@@ -11,8 +11,8 @@
 #### Emerging Tech
 - [Emtech](https://www.coursera.org/account/accomplishments/verify/4N8W9AJ2WV45)
 
-> Badges
 
+> Badges
 
 <img src="https://github.com/ka0un/ka0un/assets/88395585/e3ca74a4-5d40-49fb-a286-bd277e6883e5" alt="Badge 1" width="200">
 
