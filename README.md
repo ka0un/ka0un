@@ -5,7 +5,8 @@
 > Stats
 
 ![](https://raw.githubusercontent.com/ka0un/github-stats/master/generated/overview.svg#gh-dark-mode-only)
-![](https://raw.githubusercontent.com/ka0un/github-stats/master/generated/overview.svg#gh-light-mode-only)
+![](https://raw.githubusercontent.com/ka0un/github-stats/master/generated/languages.svg#gh-dark-mode-only)
+
 
 > Skills
 
