@@ -2,6 +2,11 @@
 
 - 🎓 Currently following Backend Developer Pathway [[progress]](https://roadmap.sh/backend?s=644a81e7e27257737498eefa)
 
+> Stats
+
+![](https://raw.githubusercontent.com/ka0un/github-stats/master/generated/overview.svg#gh-dark-mode-only)
+![](https://raw.githubusercontent.com/ka0un/github-stats/master/generated/overview.svg#gh-light-mode-only)
+
 > Skills
 
 #### Java
