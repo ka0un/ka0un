@@ -1,6 +1,8 @@
 > Status
 
-- 🎓 Currently following Backend Developer Pathway [[progress]](https://roadmap.sh/backend?s=644a81e7e27257737498eefa)
+- 🎓 Following Backend Developer Pathway [[progress]](https://roadmap.sh/backend?s=644a81e7e27257737498eefa)
+
+> Achivements
 
 <img src="https://github.com/ka0un/ka0un/assets/88395585/e3ca74a4-5d40-49fb-a286-bd277e6883e5" alt="Badge 1" width="200">
 
