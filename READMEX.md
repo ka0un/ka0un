@@ -2,24 +2,6 @@
 
 - 🎓 Currently following Backend Developer Pathway [[progress]](https://roadmap.sh/backend?s=644a81e7e27257737498eefa)
 
-> Stats
-
-![](https://github.com/ka0un/profilestats/blob/master/generated/overview.svg#gh-dark-mode-only)
-![](https://github.com/ka0un/profilestats/blob/master/generated/languages.svg#gh-dark-mode-only)
-
-
-> Skills
-
-##### ☕Java
-- [Oracle Java Explorar]()
-- [Linkedin Learning Java 11](https://www.linkedin.com/learning/certificates/ad9b4e3ce2a7712677cf8fef9a2c4712da02d7abee0e864a5d2c0670b3010012)
-
-##### ⚙️Emerging Tech
-- [Emtech](https://www.coursera.org/account/accomplishments/verify/4N8W9AJ2WV45)
-
-
-> Badges
-
 <img src="https://github.com/ka0un/ka0un/assets/88395585/e3ca74a4-5d40-49fb-a286-bd277e6883e5" alt="Badge 1" width="200">
 
 
