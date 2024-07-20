@@ -65,19 +65,6 @@ jobs:
             fi
           done <<< "$USERS"
 
-          # Clear existing leaderboard and update
-          awk '
-            /<!-- LEADERBOARD_START -->/ { 
-              print; 
-              while (/<!-- LEADERBOARD_END -->/) { 
-                getline; 
-              }
-              print ENVIRON["LEADERBOARD"]; 
-              next 
-            }
-            { print }
-          ' LEADERBOARD_FILE < <(echo "$LEADERBOARD") > temp.md && mv temp.md LEADERBOARD_FILE
-
           # Generate last clicks markdown table
           LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | while read -r LINE; do
             TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
@@ -87,18 +74,26 @@ jobs:
           done)
           LAST_CLICKS_TABLE="| Date and Time | Profile Pic | Name |\n|--------------|-------------|------|\n$LAST_CLICKS"
 
-          # Clear existing last clicks and update
-          awk '
+          # Clear existing leaderboard and last clicks before updating
+          awk -v leaderboard="$LEADERBOARD" -v last_clicks_table="$LAST_CLICKS_TABLE" '
+            /<!-- LEADERBOARD_START -->/ { 
+              print; 
+              while (/<!-- LEADERBOARD_END -->/) { 
+                getline; 
+              }
+              print leaderboard; 
+              next 
+            }
             /<!-- LAST_START -->/ { 
               print; 
               while (/<!-- LAST_END -->/) { 
                 getline; 
               }
-              print ENVIRON["LAST_CLICKS_TABLE"]; 
+              print last_clicks_table; 
               next 
             }
             { print }
-          ' LEADERBOARD_FILE < <(echo "$LAST_CLICKS_TABLE") > temp.md && mv temp.md LEADERBOARD_FILE
+          ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Update last user in the file
           echo "$USERNAME" > "$LAST_USER_FILE"
