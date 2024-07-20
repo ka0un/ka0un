@@ -24,9 +24,11 @@ jobs:
           LAST_USER_FILE=last_user.txt
           SCORES_FILE=scores.txt
           LEADERBOARD_FILE=README.md
+          LAST_CLICKS_FILE=last.txt
 
           # Extract the username of the user who clicked
           USERNAME=$(jq -r '.issue.user.login' "$GITHUB_EVENT_PATH")
+          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 
           # Check if the same user clicked twice in a row
           if [ -f "$LAST_USER_FILE" ]; then
@@ -47,10 +49,12 @@ jobs:
             echo "$USERNAME: 1" >> "$SCORES_FILE"
           fi
 
-          # Get and sort users by clicks
-          USERS=$(sort -t: -k2,2nr "$SCORES_FILE")
+          # Update the last clicks
+          sed -i "/^$USERNAME/d" "$LAST_CLICKS_FILE"  # Remove any existing record for the user
+          echo "$TIMESTAMP $USERNAME" >> "$LAST_CLICKS_FILE"
 
           # Generate leaderboard markdown table
+          USERS=$(sort -t: -k2,2nr "$SCORES_FILE")
           LEADERBOARD="| Place | Profile Pic | Name | Score |\n|-------|-------------|------|-------|\n"
           PLACE=1
           while IFS=: read -r NAME SCORE; do
@@ -61,32 +65,62 @@ jobs:
             fi
           done <<< "$USERS"
 
-          # Update the README with the new leaderboard
-          awk -v leaderboard="$LEADERBOARD" '
-            /<!-- LEADERBOARD_START -->/ { print; print leaderboard; next }
-            /<!-- LEADERBOARD_END -->/ { print; next }
+          # Clear existing leaderboard and update
+          awk '
+            /<!-- LEADERBOARD_START -->/ { 
+              print; 
+              while (/<!-- LEADERBOARD_END -->/) { 
+                getline; 
+              }
+              print ENVIRON["LEADERBOARD"]; 
+              next 
+            }
             { print }
-          ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
+          ' LEADERBOARD_FILE < <(echo "$LEADERBOARD") > temp.md && mv temp.md LEADERBOARD_FILE
+
+          # Generate last clicks markdown table
+          LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | while read -r LINE; do
+            TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
+            USERNAME=$(echo "$LINE" | awk '{print $3}')
+            PROFILE_PIC="https://github.com/${USERNAME}.png?size=40" # Example URL
+            echo "| $TIMESTAMP | ![$USERNAME]($PROFILE_PIC) | $USERNAME |"
+          done)
+          LAST_CLICKS_TABLE="| Date and Time | Profile Pic | Name |\n|--------------|-------------|------|\n$LAST_CLICKS"
+
+          # Clear existing last clicks and update
+          awk '
+            /<!-- LAST_START -->/ { 
+              print; 
+              while (/<!-- LAST_END -->/) { 
+                getline; 
+              }
+              print ENVIRON["LAST_CLICKS_TABLE"]; 
+              next 
+            }
+            { print }
+          ' LEADERBOARD_FILE < <(echo "$LAST_CLICKS_TABLE") > temp.md && mv temp.md LEADERBOARD_FILE
 
           # Update last user in the file
           echo "$USERNAME" > "$LAST_USER_FILE"
 
+          # Close all opened issues
+          OPEN_ISSUES=$(curl -s -H "Authorization: token $ACTIONS_PAT" \
+            "https://api.github.com/repos/${{ github.repository }}/issues?state=open" \
+            | jq -r '.[].number')
+
+          for ISSUE in $OPEN_ISSUES; do
+            echo "Closing issue #$ISSUE"
+            curl -s -X PATCH -H "Authorization: token $ACTIONS_PAT" \
+              -d '{"state":"closed"}' \
+              "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE"
+          done
+
           # Commit the changes
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$SCORES_FILE" "$LEADERBOARD_FILE" "$LAST_USER_FILE"
-          git commit -m "Update leaderboard for $USERNAME"
+          git add "$SCORES_FILE" "$LEADERBOARD_FILE" "$LAST_USER_FILE" "$LAST_CLICKS_FILE"
+          git commit -m "Update leaderboard and last clicks for $USERNAME"
 
           # Push changes
           echo "Using PAT for git push"
           git push https://${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}.git HEAD:main
-
-      - name: Delete the triggering issue
-        env:
-          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
-        run: |
-          ISSUE_NUMBER=$(jq -r '.issue.number' "$GITHUB_EVENT_PATH")
-          echo "Deleting issue #$ISSUE_NUMBER"
-          curl -s -X DELETE -H "Authorization: token $ACTIONS_PAT" \
-            "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER"
-
