@@ -6,7 +6,7 @@
 
 
 ## Click The Duck ![](https://github.com/ka0un/ka0un/blob/main/click.gif?raw=true?size=35)   
-> ⚠️ You cant click twise in a row !
+> ⚠️ You cant click twice in a row !
 
 
 <table style="width: 100%; border: none;" cellspacing="0" cellpadding="0" border="0">
