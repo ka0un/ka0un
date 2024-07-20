@@ -1,0 +1,42 @@
+name: Cookie Clicker
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  update-leaderboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update leaderboard
+        run: |
+          CLICKS_FILE=clicks.txt
+          LEADERBOARD_FILE=README.md
+
+          # Extract the username of the user who clicked
+          USERNAME=$(jq -r '.issue.user.login' "$GITHUB_EVENT_PATH")
+
+          # Update the clicks file
+          if grep -q "$USERNAME" "$CLICKS_FILE"; then
+            sed -i "/$USERNAME/s/[0-9]\+/$(( $(grep "$USERNAME" "$CLICKS_FILE" | awk '{print $2}') + 1 ))/" "$CLICKS_FILE"
+          else
+            echo "$USERNAME 1" >> "$CLICKS_FILE"
+          fi
+
+          # Sort and update the leaderboard in the README
+          sort -k2 -n -r "$CLICKS_FILE" > sorted_clicks.txt
+          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt)
+
+          # Insert the leaderboard into the README
+          sed -i '/<!-- LEADERBOARD_START -->/,/<!-- LEADERBOARD_END -->/c\<!-- LEADERBOARD_START -->\n'"$LEADERBOARD"'\n<!-- LEADERBOARD_END -->' "$LEADERBOARD_FILE"
+
+          # Commit the changes
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$CLICKS_FILE" "$LEADERBOARD_FILE"
+          git commit -m "Update leaderboard for $USERNAME"
+          git push
