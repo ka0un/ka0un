@@ -1,11 +1,11 @@
-name: Cookie Clicker
+name: Duck Clicker
 
 on:
   issues:
     types: [opened]
 
 concurrency:
-  group: "cookie-clicker-actions"
+  group: "duck-clicker-actions"
   cancel-in-progress: false
 
 jobs:
