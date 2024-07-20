@@ -4,20 +4,6 @@
 ## Leaderboard
 
 <!-- LEADERBOARD_START -->
-1. ka0un: 5 clicks
-1. ka0un: 4 clicks
-2. #: username clicks
-3. #: Example clicks
-1. ka0un: 3 clicks
-2. #: username clicks
-3. #: Example clicks
-1. ka0un: 2 clicks
-2. #: username clicks
-3. #: Example clicks
-1. ka0un: 1 clicks
-2. #: username clicks
-3. #: Example clicks
-Loading...
 <!-- LEADERBOARD_END -->
 
 ![](https://raw.githubusercontent.com/ka0un/profilestats/master/generated/overview.svg#gh-dark-mode-only) ![](https://raw.githubusercontent.com/ka0un/profilestats/master/generated/languages.svg#gh-dark-mode-only) 
