@@ -59,7 +59,7 @@ jobs:
           PLACE=1
           while IFS=: read -r NAME SCORE; do
             if [ "$PLACE" -le 10 ]; then
-              PROFILE_PIC="https://github.com/${NAME}.png?size=40" # Example URL
+              PROFILE_PIC="https://github.com/${NAME}.png?size=20" # Example URL
               LEADERBOARD+="| $PLACE | ![$NAME]($PROFILE_PIC) | $NAME | $SCORE |\n"
               PLACE=$((PLACE + 1))
             fi
@@ -69,7 +69,7 @@ jobs:
           LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | sort -r | while read -r LINE; do
           TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
           USERNAME=$(echo "$LINE" | awk '{print $3}')
-          PROFILE_PIC="https://github.com/${USERNAME}.png?size=40" # Example URL
+          PROFILE_PIC="https://github.com/${USERNAME}.png?size=20" # Example URL
           echo "| ![$USERNAME]($PROFILE_PIC) | $USERNAME | $(date -d "$TIMESTAMP" +"%Y-%m-%d") | $(date -d "$TIMESTAMP" +"%H:%M:%S") |"
           done)
 
