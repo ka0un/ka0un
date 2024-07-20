@@ -12,13 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install Python and PyYAML
         run: |
           sudo apt-get update
-          sudo apt-get install -y jq wget
-          wget https://github.com/mikefarah/yq/releases/download/v4.44.2/yq_linux_amd64
-          sudo dpkg -i yq_linux_amd64.deb
-          sudo apt-get install -f # Fix any missing dependencies
+          sudo apt-get install -y python3 python3-pip
+          pip3 install pyyaml
 
       - name: Update leaderboard
         env:
@@ -32,17 +30,41 @@ jobs:
           ISSUE_NUMBER=$(jq -r '.issue.number' "$GITHUB_EVENT_PATH")
 
           # Check if the same user clicked twice in a row
-          LAST_USER=$(yq e '.last_user' "$DATA_FILE")
+          LAST_USER=$(python3 -c "
+import yaml
+with open('$DATA_FILE', 'r') as file:
+    data = yaml.safe_load(file)
+print(data.get('last_user', ''))
+")
           if [ "$USERNAME" == "$LAST_USER" ]; then
             echo "User $USERNAME clicked twice in a row. Ignoring click."
             exit 0
           fi
 
           # Update the clicks in the YAML file
-          yq e ".users.\"$USERNAME\" += 1" -i "$DATA_FILE" || yq e ".users.\"$USERNAME\" = 1" -i "$DATA_FILE"
-
+          python3 -c "
+import yaml
+with open('$DATA_FILE', 'r') as file:
+    data = yaml.safe_load(file)
+if 'users' not in data:
+    data['users'] = {}
+data['users'][\"$USERNAME\"] = data['users'].get(\"$USERNAME\", 0) + 1
+data['last_user'] = \"$USERNAME\"
+with open('$DATA_FILE', 'w') as file:
+    yaml.safe_dump(data, file)
+"
+          
           # Get and sort users by clicks
-          USERS=$(yq e '.users | to_entries | sort_by(.value) | reverse | .[] | "\(.key): \(.value)"' "$DATA_FILE")
+          USERS=$(python3 -c "
+import yaml
+with open('$DATA_FILE', 'r') as file:
+    data = yaml.safe_load(file)
+users = data.get('users', {})
+sorted_users = sorted(users.items(), key=lambda x: x[1], reverse=True)
+for user, score in sorted_users:
+    print(f'{user}: {score}')
+"
+)
 
           # Generate leaderboard markdown table
           LEADERBOARD="| Place | Profile Pic | Name | Score |\n|-------|-------------|------|-------|\n"
@@ -62,9 +84,6 @@ jobs:
             { print }
           ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
-          # Update last user in data file
-          yq e ".last_user = \"$USERNAME\"" -i "$DATA_FILE"
-
           # Commit the changes
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -83,5 +102,4 @@ jobs:
           echo "Deleting issue #$ISSUE_NUMBER"
           curl -s -X DELETE -H "Authorization: token $ACTIONS_PAT" \
             "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER"
-
 
