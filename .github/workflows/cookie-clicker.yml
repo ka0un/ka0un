@@ -46,8 +46,8 @@ jobs:
           ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Commit the changes
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "ka0un"
+          git config --global user.email "kasun@hapangama.com"
           git add "$CLICKS_FILE" "$LEADERBOARD_FILE"
           git commit -m "Update leaderboard for $USERNAME"
 
