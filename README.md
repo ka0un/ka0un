@@ -5,7 +5,9 @@
 ---
 
 
-## Click The Duck ![](https://github.com/ka0un/ka0un/blob/main/click.gif?raw=true?size=35)
+## Click The Duck ![](https://github.com/ka0un/ka0un/blob/main/click.gif?raw=true?size=35)   
+> ⚠️ You cant click twise in a row !
+
 
 <table style="width: 100%; border: none;" cellspacing="0" cellpadding="0" border="0">
   
@@ -67,15 +69,6 @@
 </td>
   </tr>
 </table>
-
-<details>
-
-<summary>Rules</summary>
-
-1. You can't click twise in a row
-2. No Spam / Abuse
-
-</details>
 
 ---
 
