@@ -76,28 +76,49 @@ jobs:
 
           # Clear and update leaderboard and last clicks
           awk -v leaderboard="$LEADERBOARD" -v last_clicks_table="$LAST_CLICKS_TABLE" '
-            BEGIN {in_leaderboard=0; in_last_clicks=0}
-            /<!-- LEADERBOARD_START -->/ { 
-              print; 
-              in_leaderboard=1; 
-              next 
+            BEGIN {
+              in_leaderboard = 0;
+              in_last_clicks = 0;
+              has_leaderboard_end = 0;
+              has_last_end = 0;
             }
-            /<!-- LEADERBOARD_END -->/ { 
-              print leaderboard; 
-              in_leaderboard=0; 
-              next 
+            /<!-- LEADERBOARD_START -->/ {
+              in_leaderboard = 1;
+              print;
+              next;
             }
-            /<!-- LAST_START -->/ { 
-              print; 
-              in_last_clicks=1; 
-              next 
+            /<!-- LEADERBOARD_END -->/ {
+              if (in_leaderboard) {
+                print leaderboard;
+                in_leaderboard = 0;
+                has_leaderboard_end = 1;
+              }
+              print;
+              next;
             }
-            /<!-- LAST_END -->/ { 
-              print last_clicks_table; 
-              in_last_clicks=0; 
-              next 
+            /<!-- LAST_START -->/ {
+              in_last_clicks = 1;
+              print;
+              next;
+            }
+            /<!-- LAST_END -->/ {
+              if (in_last_clicks) {
+                print last_clicks_table;
+                in_last_clicks = 0;
+                has_last_end = 1;
+              }
+              print;
+              next;
             }
             !in_leaderboard && !in_last_clicks { print }
+            END {
+              if (has_leaderboard_end == 0) {
+                print "<!-- LEADERBOARD_END -->";
+              }
+              if (has_last_end == 0) {
+                print "<!-- LAST_END -->";
+              }
+            }
           ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Update last user in the file
