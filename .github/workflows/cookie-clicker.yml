@@ -4,6 +4,10 @@ on:
   issues:
     types: [opened]
 
+concurrency:
+  group: "cookie-clicker-actions"
+  cancel-in-progress: false
+
 jobs:
   update-leaderboard:
     runs-on: ubuntu-latest
