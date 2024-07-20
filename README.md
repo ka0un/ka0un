@@ -47,7 +47,8 @@
 |-------|-------------|------|-------|
 | 1 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un |  20 |
 | 2 | ![BackendExpert](https://github.com/BackendExpert.png?size=20) | BackendExpert |  1 |
-| 3 | ![vintagewang](https://github.com/vintagewang.png?size=20) | vintagewang |  1 |
+| 3 | ![gamergirl7000](https://github.com/gamergirl7000.png?size=20) | gamergirl7000 |  1 |
+| 4 | ![vintagewang](https://github.com/vintagewang.png?size=20) | vintagewang |  1 |
 
 <!-- LEADERBOARD_END -->
 
@@ -58,6 +59,7 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| ![gamergirl7000](https://github.com/gamergirl7000.png?size=20) | gamergirl7000 | 2024-07-20 | 13:27:10 |
 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:48:47 |
 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:46:10 |
 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:41:38 |
