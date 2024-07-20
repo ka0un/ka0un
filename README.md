@@ -2,9 +2,33 @@
 [![roadmap.sh](https://roadmap.sh/card/wide/644a81e7e27257737498eefa?variant=dark&roadmaps=java%2Cbackend%2Cspring-boot%2Csoftware-design-architecture)](https://roadmap.sh/u/aaa) ![](https://github.com/ka0un/CalC/blob/main/cat.gif?raw=true)
 ![](https://hit.yhype.me/github/profile?user_id=88395585)
 
+---
+
+
+
+## Click The Duck
+
 [![Click Me](https://github.com/ka0un/ka0un/blob/main/duck.gif?raw=true?size=50)](https://github.com/ka0un/ka0un/issues/new?title=Cookie+Click&body=I+clicked+the+cookie!)
 
-## Leaderboard
+
+<table style="width: 100%; border: none;" cellspacing="0" cellpadding="0" border="0">
+  <th>
+
+
+### Leaderboard
+
+
+  </th>
+<th>
+
+
+### Last Played
+
+
+  </th>
+  <tr>
+    <td>
+
 
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
@@ -14,6 +38,11 @@
 | 3 | ![vintagewang](https://github.com/vintagewang.png?size=20) | vintagewang |  1 |
 
 <!-- LEADERBOARD_END -->
+
+
+</td>
+    <td>
+
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
@@ -23,3 +52,11 @@
 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 05:46:46 |
 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 05:45:47 |
 <!-- LAST_END -->
+
+
+</td>
+  </tr>
+</table>
+
+---
+
