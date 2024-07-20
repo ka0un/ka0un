@@ -12,49 +12,112 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y jq python3-pip
+          pip3 install pyyaml requests
 
       - name: Update leaderboard
         run: |
-          CLICKS_FILE=clicks.txt
-          LEADERBOARD_FILE=README.md
+          import yaml
+          import os
+          import requests
+          import datetime
 
-          # Extract the username of the user who clicked
-          USERNAME=$(jq -r '.issue.user.login' "$GITHUB_EVENT_PATH")
+          # Load data from YAML
+          with open('clicks.yml', 'r') as file:
+              data = yaml.safe_load(file) or {}
 
-          # Update the clicks file
-          if grep -q "^$USERNAME " "$CLICKS_FILE"; then
-            awk -v user="$USERNAME" -v new_count="$(( $(grep "^$USERNAME " "$CLICKS_FILE" | awk '{print $2}') + 1 ))" \
-              '$1 == user { $2 = new_count } 1' "$CLICKS_FILE" > temp.txt && mv temp.txt "$CLICKS_FILE"
-          else
-            echo "$USERNAME 1" >> "$CLICKS_FILE"
-          fi
+          USERNAME = "${{ github.actor }}"
+          LAST_CLICK_FILE = 'last_click.yml'
 
-          # Sort and update the leaderboard in the README
-          sort -k2 -n -r "$CLICKS_FILE" > sorted_clicks.txt
-          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt)
+          # Function to get user profile picture
+          def get_user_avatar(username):
+              response = requests.get(f'https://api.github.com/users/{username}')
+              if response.status_code == 200:
+                  return response.json().get('avatar_url', '')
+              return ''
 
-          # Escape special characters in the leaderboard for insertion
-          LEADERBOARD_ESCAPED=$(echo "$LEADERBOARD" | awk '{gsub(/&/, "\\&"); gsub(/\//, "\\/"); gsub(/\\/, "\\\\"); print}')
+          # Read the last click info
+          if os.path.exists(LAST_CLICK_FILE):
+              with open(LAST_CLICK_FILE, 'r') as file:
+                  last_click_data = yaml.safe_load(file) or {}
+          else:
+              last_click_data = {}
 
-          # Insert the leaderboard into the README using awk
-          awk -v leaderboard="$LEADERBOARD_ESCAPED" '
-            /<!-- LEADERBOARD_START -->/ { print; print leaderboard; next }
-            /<!-- LEADERBOARD_END -->/ { print; next }
-            { print }
-          ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
+          last_click_user = last_click_data.get('last_user')
+          if USERNAME == last_click_user:
+              print("User has clicked recently; ignoring.")
+              exit(0)
+
+          # Update user click count
+          if USERNAME in data:
+              data[USERNAME] += 1
+          else:
+              data[USERNAME] = 1
+
+          # Update last click info
+          last_click_data['last_user'] = USERNAME
+          with open(LAST_CLICK_FILE, 'w') as file:
+              yaml.dump(last_click_data, file)
+
+          # Sort and generate leaderboard
+          sorted_data = sorted(data.items(), key=lambda x: x[1], reverse=True)
+          leaderboard_lines = []
+          for rank, (user, clicks) in enumerate(sorted_data, start=1):
+              avatar = get_user_avatar(user)
+              leaderboard_lines.append(f"<tr><td>{rank}</td><td><img src='{avatar}' width='50' height='50' alt='{user}'/></td><td>{user}</td><td>{clicks} clicks</td></tr>")
+
+          leaderboard_html = f"""
+          <!-- LEADERBOARD_START -->
+          <h2>Leaderboard</h2>
+          <table border="1" cellpadding="5" cellspacing="0">
+            <tr><th>Rank</th><th>Avatar</th><th>User</th><th>Clicks</th></tr>
+            {"\n".join(leaderboard_lines)}
+          </table>
+          <!-- LEADERBOARD_END -->
+          """
+
+          # Track last 5 clickers
+          recent_clickers = [USER for USER, _ in sorted_data[:5]]
+          recent_clickers_html = '<ul>' + ''.join(f'<li>{user}</li>' for user in recent_clickers) + '</ul>'
+
+          # Read and update README
+          with open('README.md', 'r') as file:
+              readme_content = file.read()
+
+          new_content = readme_content.replace(
+              '<!-- LEADERBOARD_START -->\n<!-- LEADERBOARD_END -->',
+              leaderboard_html
+          ).replace(
+              '<!-- LAST_5_CLICKERS_START -->\n<!-- LAST_5_CLICKERS_END -->',
+              recent_clickers_html
+          )
+
+          with open('README.md', 'w') as file:
+              file.write(new_content)
+
+          # Save updated YAML file
+          with open('clicks.yml', 'w') as file:
+              yaml.dump(data, file)
 
           # Commit the changes
-          git config --global user.name "ka0un"
-          git config --global user.email "kasun@hapangama.com"
-          git add "$CLICKS_FILE" "$LEADERBOARD_FILE"
-          git commit -m "Update leaderboard for $USERNAME"
-
-      - name: Push changes
-        env:
-          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
-        run: |
-          echo "Using PAT for git push"
+          git config --global user.name "Cookie Clicker Bot"
+          git config --global user.email "cookieclickerbot@example.com"
+          git add clicks.yml README.md
+          git commit -m "Update leaderboard and clickers"
           git push https://${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}.git HEAD:main
+
+      - name: Delete the triggering issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          API_URL="https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
+          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
+               -d '{"state":"closed"}' \
+               "$API_URL"
+          curl -X DELETE -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               "$API_URL"
 
