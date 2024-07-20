@@ -70,7 +70,7 @@ jobs:
           done <<< "$USERS"
 
           # Generate last clicks markdown table (limit to 5 rows)
-          LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | sort -r | while read -r LINE; do
+          LAST_CLICKS=$(tail -n 10 "$LAST_CLICKS_FILE" | sort -r | while read -r LINE; do
           TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
           USERNAME=$(echo "$LINE" | awk '{print $3}')
           PROFILE_PIC="https://github.com/${USERNAME}.png?size=20" # Example URL
