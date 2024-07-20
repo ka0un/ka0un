@@ -12,27 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get install -y jq curl
-
-      - name: Check permissions
-        id: check-permissions
-        run: |
-          # Extract the username of the user who clicked
-          USERNAME=$(jq -r '.issue.user.login' "$GITHUB_EVENT_PATH")
-          
-          # Use GitHub API to check user permissions
-          REPO_API_URL="https://api.github.com/repos/${{ github.repository }}/collaborators/$USERNAME/permission"
-          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.ACTIONS_PAT }}" "$REPO_API_URL")
-          
-          # Check if the response contains the permission information
-          if echo "$RESPONSE" | grep -q '"permission": "admin"\|"push"'; then
-            echo "User $USERNAME has sufficient permissions."
-          else
-            echo "User $USERNAME does not have sufficient permissions."
-            exit 1
-          fi
+      - name: Install jq
+        run: sudo apt-get install -y jq
 
       - name: Update leaderboard
         run: |
@@ -76,3 +57,4 @@ jobs:
         run: |
           echo "Using PAT for git push"
           git push https://${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}.git HEAD:main
+
