@@ -13,7 +13,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: sudo apt-get install -y jq yq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq wget
+          wget https://github.com/mikefarah/yq/releases/download/v4.44.2/yq_linux_amd64
+          sudo dpkg -i yq_linux_amd64.deb
+          sudo apt-get install -f # Fix any missing dependencies
 
       - name: Update leaderboard
         env:
@@ -27,7 +32,7 @@ jobs:
           ISSUE_NUMBER=$(jq -r '.issue.number' "$GITHUB_EVENT_PATH")
 
           # Check if the same user clicked twice in a row
-          LAST_USER=$(grep "last_user" "$DATA_FILE" | awk '{print $2}')
+          LAST_USER=$(yq e '.last_user' "$DATA_FILE")
           if [ "$USERNAME" == "$LAST_USER" ]; then
             echo "User $USERNAME clicked twice in a row. Ignoring click."
             exit 0
@@ -78,4 +83,5 @@ jobs:
           echo "Deleting issue #$ISSUE_NUMBER"
           curl -s -X DELETE -H "Authorization: token $ACTIONS_PAT" \
             "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER"
+
 
