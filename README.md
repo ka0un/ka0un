@@ -4,6 +4,9 @@
 ## Leaderboard
 
 <!-- LEADERBOARD_START -->
+1. ka0un: 4 clicks
+2. #: username clicks
+3. #: Example clicks
 1. ka0un: 3 clicks
 2. #: username clicks
 3. #: Example clicks
