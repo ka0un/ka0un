@@ -32,10 +32,16 @@ jobs:
 
           # Sort and update the leaderboard in the README
           sort -k2 -n -r "$CLICKS_FILE" > sorted_clicks.txt
-          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt | paste -sd "\n" -)
+          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt)
+
+          # Escape special characters in the leaderboard for sed
+          LEADERBOARD_ESCAPED=$(echo "$LEADERBOARD" | sed 's/[&/\]/\\&/g')
 
           # Insert the leaderboard into the README
-          awk -v leaderboard="$LEADERBOARD" 'BEGIN {printstr=1} /<!-- LEADERBOARD_START -->/ {printstr=0; print; print leaderboard; next} /<!-- LEADERBOARD_END -->/ {printstr=1} printstr' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
+          sed -i "/<!-- LEADERBOARD_START -->/,/<!-- LEADERBOARD_END -->/c\\
+          <!-- LEADERBOARD_START -->\\
+          $LEADERBOARD_ESCAPED\\
+          <!-- LEADERBOARD_END -->" "$LEADERBOARD_FILE"
 
           # Commit the changes
           git config --global user.name "github-actions[bot]"
