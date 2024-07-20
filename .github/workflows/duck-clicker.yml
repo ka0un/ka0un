@@ -62,19 +62,19 @@ jobs:
           LEADERBOARD="| Place | Pic | Name | Score |\n|-------|-------------|------|-------|\n"
           PLACE=1
           while IFS=: read -r NAME SCORE; do
-            if [ "$PLACE" -le 10 ]; then
-              PROFILE_PIC="https://github.com/${NAME}.png?size=20" # Example URL
-              LEADERBOARD+="| $PLACE | ![$NAME]($PROFILE_PIC) | $NAME | $SCORE |\n"
+            if [ "$PLACE" -le 5 ]; then
+              PROFILE_PIC="<img src="https://github.com/$NAME.png?size=20" width="20" />" # Example URL
+              LEADERBOARD+="| $PLACE | $PROFILE_PIC | $NAME | $SCORE |\n"
               PLACE=$((PLACE + 1))
             fi
           done <<< "$USERS"
 
           # Generate last clicks markdown table (limit to 5 rows)
-          LAST_CLICKS=$(tail -n 10 "$LAST_CLICKS_FILE" | sort -r | while read -r LINE; do
+          LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | sort -r | while read -r LINE; do
           TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
           USERNAME=$(echo "$LINE" | awk '{print $3}')
-          PROFILE_PIC="https://github.com/${USERNAME}.png?size=20" # Example URL
-          echo "| ![$USERNAME]($PROFILE_PIC) | $USERNAME | $(date -d "$TIMESTAMP" +"%Y-%m-%d") | $(date -d "$TIMESTAMP" +"%H:%M:%S") |"
+          PROFILE_PIC="<img src="https://github.com/$USERNAME.png?size=20" width="20" />" # Example URL
+          echo "| $PROFILE_PIC | $USERNAME | $(date -d "$TIMESTAMP" +"%Y-%m-%d") | $(date -d "$TIMESTAMP" +"%H:%M:%S") |"
           done)
 
           LAST_CLICKS_TABLE="| Pic | Name | Date | Time |\n|-------------|------|------|------|\n$LAST_CLICKS"
