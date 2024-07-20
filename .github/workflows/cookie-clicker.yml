@@ -74,25 +74,30 @@ jobs:
           done)
           LAST_CLICKS_TABLE="| Date and Time | Profile Pic | Name |\n|--------------|-------------|------|\n$LAST_CLICKS"
 
-          # Clear existing leaderboard and last clicks before updating
+          # Clear and update leaderboard and last clicks
           awk -v leaderboard="$LEADERBOARD" -v last_clicks_table="$LAST_CLICKS_TABLE" '
+            BEGIN {in_leaderboard=0; in_last_clicks=0}
             /<!-- LEADERBOARD_START -->/ { 
               print; 
-              while (/<!-- LEADERBOARD_END -->/) { 
-                getline; 
-              }
+              in_leaderboard=1; 
+              next 
+            }
+            /<!-- LEADERBOARD_END -->/ { 
               print leaderboard; 
+              in_leaderboard=0; 
               next 
             }
             /<!-- LAST_START -->/ { 
               print; 
-              while (/<!-- LAST_END -->/) { 
-                getline; 
-              }
-              print last_clicks_table; 
+              in_last_clicks=1; 
               next 
             }
-            { print }
+            /<!-- LAST_END -->/ { 
+              print last_clicks_table; 
+              in_last_clicks=0; 
+              next 
+            }
+            !in_leaderboard && !in_last_clicks { print }
           ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Update last user in the file
