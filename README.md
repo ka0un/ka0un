@@ -8,7 +8,7 @@
 
 ## Click The Duck
 
-[![Click Me](https://github.com/ka0un/ka0un/blob/main/duck.gif?raw=true?size=50)](https://github.com/ka0un/ka0un/issues/new?title=Cookie+Click&body=I+clicked+the+cookie!)
+[![Click Me](https://github.com/ka0un/ka0un/blob/main/duck.gif?raw=true?size=50)](https://github.com/ka0un/ka0un/issues/new?title=Duck+Click&body=I+clicked+the+duck!)
 
 
 <table style="width: 100%; border: none;" cellspacing="0" cellpadding="0" border="0">
