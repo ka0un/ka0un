@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Update leaderboard
         run: |
           CLICKS_FILE=clicks.txt
@@ -22,17 +25,17 @@ jobs:
 
           # Update the clicks file
           if grep -q "$USERNAME" "$CLICKS_FILE"; then
-            sed -i "/$USERNAME/s/[0-9]\+/$(( $(grep "$USERNAME" "$CLICKS_FILE" | awk '{print $2}') + 1 ))/" "$CLICKS_FILE"
+            sed -i "/^$USERNAME /s/[0-9]\+/$(( $(grep "^$USERNAME " "$CLICKS_FILE" | awk '{print $2}') + 1 ))/" "$CLICKS_FILE"
           else
             echo "$USERNAME 1" >> "$CLICKS_FILE"
           fi
 
           # Sort and update the leaderboard in the README
           sort -k2 -n -r "$CLICKS_FILE" > sorted_clicks.txt
-          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt)
+          LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt | paste -sd "\n" -)
 
           # Insert the leaderboard into the README
-          sed -i '/<!-- LEADERBOARD_START -->/,/<!-- LEADERBOARD_END -->/c\<!-- LEADERBOARD_START -->\n'"$LEADERBOARD"'\n<!-- LEADERBOARD_END -->' "$LEADERBOARD_FILE"
+          awk -v leaderboard="$LEADERBOARD" 'BEGIN {printstr=1} /<!-- LEADERBOARD_START -->/ {printstr=0; print; print leaderboard; next} /<!-- LEADERBOARD_END -->/ {printstr=1} printstr' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Commit the changes
           git config --global user.name "github-actions[bot]"
