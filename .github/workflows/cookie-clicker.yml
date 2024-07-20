@@ -25,7 +25,8 @@ jobs:
 
           # Update the clicks file
           if grep -q "^$USERNAME " "$CLICKS_FILE"; then
-            sed -i "/^$USERNAME /s/[0-9]\+/$(( $(grep "^$USERNAME " "$CLICKS_FILE" | awk '{print $2}') + 1 ))/" "$CLICKS_FILE"
+            awk -v user="$USERNAME" -v new_count="$(( $(grep "^$USERNAME " "$CLICKS_FILE" | awk '{print $2}') + 1 ))" \
+              '$1 == user { $2 = new_count } 1' "$CLICKS_FILE" > temp.txt && mv temp.txt "$CLICKS_FILE"
           else
             echo "$USERNAME 1" >> "$CLICKS_FILE"
           fi
@@ -34,14 +35,15 @@ jobs:
           sort -k2 -n -r "$CLICKS_FILE" > sorted_clicks.txt
           LEADERBOARD=$(awk '{print NR ". " $1 ": " $2 " clicks"}' sorted_clicks.txt)
 
-          # Escape special characters in the leaderboard for sed
-          LEADERBOARD_ESCAPED=$(echo "$LEADERBOARD" | sed 's/[&/\]/\\&/g')
+          # Escape special characters in the leaderboard for insertion
+          LEADERBOARD_ESCAPED=$(echo "$LEADERBOARD" | awk '{gsub(/&/, "\\&"); gsub(/\//, "\\/"); gsub(/\\/, "\\\\"); print}')
 
-          # Insert the leaderboard into the README
-          sed -i "/<!-- LEADERBOARD_START -->/,/<!-- LEADERBOARD_END -->/c\\
-          <!-- LEADERBOARD_START -->\\
-          $LEADERBOARD_ESCAPED\\
-          <!-- LEADERBOARD_END -->" "$LEADERBOARD_FILE"
+          # Insert the leaderboard into the README using awk
+          awk -v leaderboard="$LEADERBOARD_ESCAPED" '
+            /<!-- LEADERBOARD_START -->/ { print; print leaderboard; next }
+            /<!-- LEADERBOARD_END -->/ { print; next }
+            { print }
+          ' "$LEADERBOARD_FILE" > temp.md && mv temp.md "$LEADERBOARD_FILE"
 
           # Commit the changes
           git config --global user.name "github-actions[bot]"
