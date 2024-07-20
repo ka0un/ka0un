@@ -65,7 +65,7 @@ jobs:
             fi
           done <<< "$USERS"
 
-          # Generate last clicks markdown table
+          # Generate last clicks markdown table (limit to 5 rows)
           LAST_CLICKS=$(tail -n 5 "$LAST_CLICKS_FILE" | while read -r LINE; do
             TIMESTAMP=$(echo "$LINE" | awk '{print $1" "$2}')
             USERNAME=$(echo "$LINE" | awk '{print $3}')
@@ -124,3 +124,4 @@ jobs:
           # Push changes
           echo "Using PAT for git push"
           git push https://${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}.git HEAD:main
+
