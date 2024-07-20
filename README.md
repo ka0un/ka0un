@@ -6,6 +6,12 @@
 <!-- LEADERBOARD_START -->
 | Place | Profile Pic | Name | Score |
 |-------|-------------|------|-------|
+| 1 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |  7 |
+| 2 | ![BackendExpert](https://github.com/BackendExpert.png?size=40) | BackendExpert |  1 |
+| 3 | ![vintagewang](https://github.com/vintagewang.png?size=40) | vintagewang |  1 |
+
+| Place | Profile Pic | Name | Score |
+|-------|-------------|------|-------|
 | 1 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |  6 |
 | 2 | ![BackendExpert](https://github.com/BackendExpert.png?size=40) | BackendExpert |  1 |
 | 3 | ![vintagewang](https://github.com/vintagewang.png?size=40) | vintagewang |  1 |
@@ -19,6 +25,12 @@
 <!-- LEADERBOARD_END -->
 
 <!-- LAST_START -->
+| Date and Time | Profile Pic | Name |
+|--------------|-------------|------|
+| 2024-07-20 05:26:21 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |
+| 2024-07-20 05:28:44 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |
+| 2024-07-20 05:32:37 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |
+| 2024-07-20 05:34:33 | ![ka0un](https://github.com/ka0un.png?size=40) | ka0un |
 | Date and Time | Profile Pic | Name |
 |--------------|-------------|------|
 |   | ![](https://github.com/.png?size=40) |  |
