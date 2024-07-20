@@ -70,3 +70,5 @@
 
 ---
 
+![](https://komarev.com/ghpvc/?username=ka0un) ![Static Badge](https://img.shields.io/badge/Top%20Language-Java-orange) ![Static Badge](https://img.shields.io/badge/Top%20Framework-Spring-green) ![Static Badge](https://img.shields.io/badge/Role-Backend%20Developer-pink) ![Static Badge](https://img.shields.io/badge/Academic%20Status-Undergraduate-yellow)
+
