@@ -45,10 +45,10 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | ![ka0un](https://github.com/ka0un.png?size=20) | ka0un |  20 |
-| 2 | ![BackendExpert](https://github.com/BackendExpert.png?size=20) | BackendExpert |  1 |
-| 3 | ![gamergirl7000](https://github.com/gamergirl7000.png?size=20) | gamergirl7000 |  1 |
-| 4 | ![vintagewang](https://github.com/vintagewang.png?size=20) | vintagewang |  1 |
+| 1 | <img src=https://github.com/ka0un.png?size=20 width=20 /> | ka0un |  21 |
+| 2 | <img src=https://github.com/BackendExpert.png?size=20 width=20 /> | BackendExpert |  1 |
+| 3 | <img src=https://github.com/gamergirl7000.png?size=20 width=20 /> | gamergirl7000 |  1 |
+| 4 | <img src=https://github.com/vintagewang.png?size=20 width=20 /> | vintagewang |  1 |
 
 <!-- LEADERBOARD_END -->
 
@@ -59,10 +59,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
-| ![gamergirl7000](https://github.com/gamergirl7000.png?size=20) | gamergirl7000 | 2024-07-20 | 13:27:10 |
-| ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:48:47 |
-| ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:46:10 |
-| ![ka0un](https://github.com/ka0un.png?size=20) | ka0un | 2024-07-20 | 07:41:38 |
+| <img src=https://github.com/ka0un.png?size=20 width=20 /> | ka0un | 2024-07-20 | 13:42:48 |
+| <img src=https://github.com/gamergirl7000.png?size=20 width=20 /> | gamergirl7000 | 2024-07-20 | 13:27:10 |
+| <img src=https://github.com/ka0un.png?size=20 width=20 /> | ka0un | 2024-07-20 | 07:48:47 |
+| <img src=https://github.com/ka0un.png?size=20 width=20 /> | ka0un | 2024-07-20 | 07:46:10 |
+| <img src=https://github.com/ka0un.png?size=20 width=20 /> | ka0un | 2024-07-20 | 07:41:38 |
 <!-- LAST_END -->
 
 
