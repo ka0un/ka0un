@@ -14,7 +14,7 @@
 <tr>
   <td>
 
- [![Click Me](https://github.com/ka0un/ka0un/blob/main/duck.gif?raw=true?size=50)](https://github.com/ka0un/ka0un/issues/new?title=Duck+Click&body=I+clicked+the+duck!)  
+ [![Click Me](https://github.com/ka0un/ka0un/blob/main/duck.gif?raw=true?size=50)](https://github.com/ka0un/ka0un/issues/new?title=I+clicked+the+duck!&body=click+submit+new+issue+button+to+confirm+the+duck+click)  
 
   </td>
 <td>
