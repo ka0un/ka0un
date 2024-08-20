@@ -2,6 +2,7 @@
 [![roadmap.sh](https://roadmap.sh/card/wide/644a81e7e27257737498eefa?variant=dark&roadmaps=java%2Cbackend%2Cspring-boot%2Csoftware-design-architecture)](https://roadmap.sh/u/aaa) ![](https://github.com/ka0un/CalC/blob/main/cat.gif?raw=true)
 ![](https://hit.yhype.me/github/profile?user_id=88395585)
 
+![](https://wakatime.com/share/@66bcdf4c-449f-4f18-adb0-7bd04c580ae9/74460e61-6974-4861-b6ca-e2bd357e1a2d.svg)
 ---
 
 
