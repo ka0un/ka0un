@@ -49,7 +49,8 @@
 | 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  23 |
 | 2 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
 | 3 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
-| 4 | <img src="https://github.com/vintagewang.png?size=20" width="20" /> | vintagewang |  1 |
+| 4 | <img src="https://github.com/MiniduTH.png?size=20" width="20" /> | MiniduTH |  1 |
+| 5 | <img src="https://github.com/vintagewang.png?size=20" width="20" /> | vintagewang |  1 |
 
 <!-- LEADERBOARD_END -->
 
@@ -60,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/MiniduTH.png?size=20" width="20" /> | MiniduTH | 2024-11-22 | 12:31:57 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-07-21 | 08:16:31 |
 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 | 2024-07-20 | 13:53:33 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-07-20 | 13:48:14 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-07-20 | 13:42:48 |
-| <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 | 2024-07-20 | 13:27:10 |
 <!-- LAST_END -->
 
 
