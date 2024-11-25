@@ -75,5 +75,5 @@
 
 ---
 
-![](https://komarev.com/ghpvc/?username=ka0un) ![Static Badge](https://img.shields.io/badge/Top%20Language-Java-orange) ![Static Badge](https://img.shields.io/badge/Top%20Framework-Spring-green) ![Static Badge](https://img.shields.io/badge/Role-Backend%20Developer-pink) ![Static Badge](https://img.shields.io/badge/Academic%20Status-Undergraduate-yellow)
+![](https://komarev.com/ghpvc/?username=ka0un) ![Static Badge](https://img.shields.io/badge/Top%20Language-Java-orange) [![wakatime](https://wakatime.com/badge/user/66bcdf4c-449f-4f18-adb0-7bd04c580ae9.svg)](https://wakatime.com/@66bcdf4c-449f-4f18-adb0-7bd04c580ae9)
 
