@@ -46,7 +46,7 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  24 |
+| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  25 |
 | 2 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
 | 3 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
 | 4 | <img src="https://github.com/MiniduTH.png?size=20" width="20" /> | MiniduTH |  1 |
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-12-23 | 04:02:17 |
 | <img src="https://github.com/orgllk.png?size=20" width="20" /> | orgllk | 2024-12-21 | 14:56:18 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-11-22 | 17:06:57 |
 | <img src="https://github.com/MiniduTH.png?size=20" width="20" /> | MiniduTH | 2024-11-22 | 12:31:57 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-07-21 | 08:16:31 |
-| <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 | 2024-07-20 | 13:53:33 |
 <!-- LAST_END -->
 
 
