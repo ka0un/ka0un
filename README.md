@@ -48,9 +48,9 @@
 |-------|-------------|------|-------|
 | 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  26 |
 | 2 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
-| 3 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
-| 4 | <img src="https://github.com/DilZhaan.png?size=20" width="20" /> | DilZhaan |  1 |
-| 5 | <img src="https://github.com/MiniduTH.png?size=20" width="20" /> | MiniduTH |  1 |
+| 3 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  1 |
+| 4 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
+| 5 | <img src="https://github.com/DilZhaan.png?size=20" width="20" /> | DilZhaan |  1 |
 
 <!-- LEADERBOARD_END -->
 
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 | 2025-03-09 | 17:17:36 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-12-26 | 07:02:31 |
 | <img src="https://github.com/DilZhaan.png?size=20" width="20" /> | DilZhaan | 2024-12-25 | 07:53:19 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-12-23 | 04:02:17 |
 | <img src="https://github.com/orgllk.png?size=20" width="20" /> | orgllk | 2024-12-21 | 14:56:18 |
-| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2024-11-22 | 17:06:57 |
 <!-- LAST_END -->
 
 
