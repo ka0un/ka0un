@@ -46,7 +46,7 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  29 |
+| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  30 |
 | 2 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
 | 3 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  1 |
 | 4 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-06-29 | 14:29:09 |
 | <img src="https://github.com/syncwrld.png?size=20" width="20" /> | syncwrld | 2025-06-25 | 00:26:45 |
 | <img src="https://github.com/SalyyS1.png?size=20" width="20" /> | SalyyS1 | 2025-05-12 | 05:18:39 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-05-02 | 07:53:34 |
 | <img src="https://github.com/JustBlaxe.png?size=20" width="20" /> | JustBlaxe | 2025-05-01 | 19:48:39 |
-| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-04-27 | 17:13:16 |
 <!-- LAST_END -->
 
 
