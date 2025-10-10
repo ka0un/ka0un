@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/shubham-shipt.png?size=20" width="20" /> | shubham-shipt | 2025-10-10 | 09:48:05 |
 | <img src="https://github.com/cjdaboi36.png?size=20" width="20" /> | cjdaboi36 | 2025-09-20 | 12:14:31 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-06-29 | 14:29:09 |
 | <img src="https://github.com/syncwrld.png?size=20" width="20" /> | syncwrld | 2025-06-25 | 00:26:45 |
 | <img src="https://github.com/SalyyS1.png?size=20" width="20" /> | SalyyS1 | 2025-05-12 | 05:18:39 |
-| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-05-02 | 07:53:34 |
 <!-- LAST_END -->
 
 
