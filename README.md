@@ -46,7 +46,7 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  30 |
+| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  31 |
 | 2 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
 | 3 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  1 |
 | 4 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-12-08 | 08:08:35 |
 | <img src="https://github.com/shubham-shipt.png?size=20" width="20" /> | shubham-shipt | 2025-10-10 | 09:48:05 |
 | <img src="https://github.com/cjdaboi36.png?size=20" width="20" /> | cjdaboi36 | 2025-09-20 | 12:14:31 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2025-06-29 | 14:29:09 |
 | <img src="https://github.com/syncwrld.png?size=20" width="20" /> | syncwrld | 2025-06-25 | 00:26:45 |
-| <img src="https://github.com/SalyyS1.png?size=20" width="20" /> | SalyyS1 | 2025-05-12 | 05:18:39 |
 <!-- LAST_END -->
 
 
