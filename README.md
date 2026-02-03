@@ -68,12 +68,21 @@
 | <img src="https://github.com/cjdaboi36.png?size=20" width="20" /> | cjdaboi36 | 2025-09-20 | 12:14:31 |
 <!-- LAST_END -->
 
-
 </td>
   </tr>
 </table>
 
 ---
+
+## Star History
+
+<a href="https://www.star-history.com/#ka0un/OPProtector&ka0un/Discordleaderboards&ka0un/simplewebsite&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ka0un/OPProtector,ka0un/Discordleaderboards,ka0un/simplewebsite&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ka0un/OPProtector,ka0un/Discordleaderboards,ka0un/simplewebsite&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ka0un/OPProtector,ka0un/Discordleaderboards,ka0un/simplewebsite&type=date&legend=top-left" />
+ </picture>
+</a>
 
 ![](https://komarev.com/ghpvc/?username=ka0un) ![Static Badge](https://img.shields.io/badge/Top%20Language-Java-orange) [![wakatime](https://wakatime.com/badge/user/66bcdf4c-449f-4f18-adb0-7bd04c580ae9.svg)](https://wakatime.com/@66bcdf4c-449f-4f18-adb0-7bd04c580ae9)
 
