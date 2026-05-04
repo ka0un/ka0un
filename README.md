@@ -49,8 +49,8 @@
 | 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  33 |
 | 2 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  2 |
 | 3 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
-| 4 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
-| 5 | <img src="https://github.com/DilZhaan.png?size=20" width="20" /> | DilZhaan |  1 |
+| 4 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain |  2 |
+| 5 | <img src="https://github.com/BackendExpert.png?size=20" width="20" /> | BackendExpert |  1 |
 
 <!-- LEADERBOARD_END -->
 
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-05-04 | 21:23:13 |
 | <img src="https://github.com/RealKai295.png?size=20" width="20" /> | RealKai295 | 2026-04-14 | 15:12:06 |
 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-04-08 | 21:26:04 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2026-04-07 | 07:00:54 |
 | <img src="https://github.com/Saviru.png?size=20" width="20" /> | Saviru | 2026-03-14 | 03:00:40 |
-| <img src="https://github.com/IT24100762.png?size=20" width="20" /> | IT24100762 | 2026-03-10 | 08:20:40 |
 <!-- LAST_END -->
 
 </td>
