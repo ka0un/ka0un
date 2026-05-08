@@ -46,7 +46,7 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  33 |
+| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  34 |
 | 2 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  2 |
 | 3 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
 | 4 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain |  2 |
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2026-05-08 | 10:13:24 |
 | <img src="https://github.com/pavanuthsara.png?size=20" width="20" /> | pavanuthsara | 2026-05-08 | 04:17:32 |
 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-05-04 | 21:23:13 |
 | <img src="https://github.com/RealKai295.png?size=20" width="20" /> | RealKai295 | 2026-04-14 | 15:12:06 |
 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-04-08 | 21:26:04 |
-| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2026-04-07 | 07:00:54 |
 <!-- LAST_END -->
 
 </td>
