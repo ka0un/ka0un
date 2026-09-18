@@ -46,7 +46,7 @@
 <!-- LEADERBOARD_START -->
 | Place | Pic | Name | Score |
 |-------|-------------|------|-------|
-| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  34 |
+| 1 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un |  35 |
 | 2 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain |  3 |
 | 3 | <img src="https://github.com/7julian8.png?size=20" width="20" /> | 7julian8 |  2 |
 | 4 | <img src="https://github.com/gamergirl7000.png?size=20" width="20" /> | gamergirl7000 |  2 |
@@ -61,11 +61,11 @@
 <!-- LAST_START -->
 | Pic | Name | Date | Time |
 |-------------|------|------|------|
+| <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2026-09-18 | 06:18:45 |
 | <img src="https://github.com/esermedias.png?size=20" width="20" /> | esermedias | 2026-05-28 | 10:40:48 |
 | <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-05-27 | 02:58:14 |
 | <img src="https://github.com/ka0un.png?size=20" width="20" /> | ka0un | 2026-05-08 | 10:13:24 |
 | <img src="https://github.com/pavanuthsara.png?size=20" width="20" /> | pavanuthsara | 2026-05-08 | 04:17:32 |
-| <img src="https://github.com/itsdakshjain.png?size=20" width="20" /> | itsdakshjain | 2026-05-04 | 21:23:13 |
 <!-- LAST_END -->
 
 </td>
